@@ -75,3 +75,27 @@ function startTimer() {
   
   clearInterval(countdown);
   updateDisplay();
+
+  countdown = setInterval(() => {
+    remainingTime--;
+    updateDisplay();
+    
+    if (remainingTime <= 0) {
+      clearInterval(countdown);
+      alert('Countdown finished!');
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(countdown);
+}
+
+function resetTimer() {
+  clearInterval(countdown);
+  remainingTime = 0;
+  updateDisplay();
+  hoursInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+}
